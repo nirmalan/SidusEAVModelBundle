@@ -85,6 +85,9 @@ class Attribute implements AttributeInterface
     /** @var string */
     protected $fallbackLabel;
 
+    /** @var string */
+    protected $attributeSet;
+
     /**
      * @param string                $code
      * @param AttributeTypeRegistry $attributeTypeRegistry
@@ -374,6 +377,24 @@ class Attribute implements AttributeInterface
     {
         $this->label = $label;
 
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttributeSet()
+    {
+        return $this->attributeSet;
+    }
+
+    /**
+     * @param string $attributeSet
+     * @return Attribute
+     */
+    public function setAttributeSet($attributeSet)
+    {
+        $this->attributeSet = $attributeSet;
         return $this;
     }
 
