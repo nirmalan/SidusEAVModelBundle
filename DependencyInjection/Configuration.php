@@ -93,7 +93,10 @@ class Configuration implements ConfigurationInterface
             ->booleanNode('multiple')->end()
             ->booleanNode('collection')->end()
             ->variableNode('context_mask')->end()
-            ->scalarNode('attribute_set')->end();
+            ->arrayNode('attribute_set')
+                ->performNoDeepMerging()
+                ->scalarPrototype()->end()
+            ->end();
     }
 
 

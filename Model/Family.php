@@ -585,4 +585,24 @@ class Family implements FamilyInterface
             $this->addAttribute($attribute);
         }
     }
+
+    public function getAttributesForSets(array $attributeSets = []) {
+
+        if( empty($attributeSets) ) {
+            return $this->getAttributes();
+        }
+
+        $matchedAttributes = [];
+
+        /** @var AttributeInterface $attribute */
+        foreach ($this->attributes as $attribute) {
+            $intersect = array_intersect($attributeSets, $attribute->getAttributeSet());
+            if (empty($intersect)) {
+                continue;
+            }
+            $matchedAttributes[] = $attribute;
+        }
+        return $matchedAttributes;
+    }
+
 }
