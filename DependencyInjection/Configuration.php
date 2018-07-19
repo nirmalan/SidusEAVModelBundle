@@ -92,7 +92,8 @@ class Configuration implements ConfigurationInterface
             ->booleanNode('unique')->end()
             ->booleanNode('multiple')->end()
             ->booleanNode('collection')->end()
-            ->variableNode('context_mask')->end();
+            ->variableNode('context_mask')->end()
+            ->scalarNode('attribute_set')->end();
     }
 
 
